@@ -2,4 +2,6 @@
 # List all required python packages here.
 google-genai
 google-generativeai
-pytest
+pytest==8.4.2
+# Only needed to regenerate the exported workflow diagram.
+pillow>=12,<13
