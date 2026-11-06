@@ -1,0 +1,29 @@
+# ==============================================================
+#  Git Ignore — Vin Smart Future / VinUni Codelab Day 02
+# ==============================================================
+
+# 🔑 Biến môi trường & API Keys — KHÔNG BAO GIỜ commit
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
