@@ -1,8 +1,10 @@
 # AI Log & Reflection — Lab 02
 
 **Ngày thực hiện:** 07/11/2026  
+**Học viên:** Nguyễn Tuấn Kiệt
+**MSV:** 2A202603417
 **Công cụ sử dụng:** Trợ lý AI hỗ trợ soạn bài, Python và Gemini API (`gemini-3.6-flash`) kiểm thử prompt prototype.  
-**Ghi chú:** Đây là nhật ký các thao tác thực sự trong phiên hỗ trợ làm bài, không phải lời kể hư cấu về khảo sát doanh nghiệp hay thảo luận nhóm đã diễn ra. Phần phản ánh là bản tổng hợp chân thực từ quá trình làm việc cùng AI; người nộp cần đọc và điều chỉnh theo trải nghiệm cá nhân trước khi nộp.
+**Ghi chú:** Đây là nhật ký các thao tác thực sự trong phiên hỗ trợ làm bài, không phải lời kể hư cấu về khảo sát doanh nghiệp hay thảo luận nhóm đã diễn ra. Phần phản ánh là bản tổng hợp chân thực từ quá trình làm việc cùng AI.
 
 ---
 
