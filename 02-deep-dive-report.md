@@ -1,4 +1,4 @@
-# Deep-Dive Report — VinFast: Phát hiện sớm lỗi an toàn từ phiếu sửa chữa & bảo hành đa ngôn ngữ
+# Deep-Dive Report — VinFast: Phát hiện sớm lỗi an toàn từ ticket sự cố và phiếu sửa chữa đa ngôn ngữ trên mọi thị trường
 
 **Công ty thành viên:** VinFast · **Phạm vi:** dòng VF8 tại các thị trường đang bán · **Người soạn:** Trịnh Công Đức (branch `TrinhCongDuc`) · **Nguồn đề tài:** Card #1 trong [01-problem-scan.md](01-problem-scan.md)
 

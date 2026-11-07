@@ -26,7 +26,7 @@ Dùng **4 Lenses** (Lặp lại · Tốn thời gian · AI có thể tốt hơn 
 
 Chọn top 3 từ danh sách SCAN: **#1 (VinFast — lỗi an toàn), #2 (Vinschool — nhận xét học sinh), #3 (Xanh SM — khiếu nại thu nhập tài xế).**
 
-## Card #1 — VinFast: Phát hiện sớm lỗi an toàn từ phiếu sửa chữa đa ngôn ngữ
+## Card #1 — VinFast: Phát hiện sớm lỗi an toàn từ ticket sự cố và phiếu sửa chữa đa ngôn ngữ trên mọi thị trường
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
@@ -151,7 +151,7 @@ Chọn top 3 từ danh sách SCAN: **#1 (VinFast — lỗi an toàn), #2 (Vinsch
 
 # 🗳️ Đề xuất lựa chọn cho Deep-Dive (mang đến buổi họp nhóm)
 
-Tôi đề xuất chọn **"Card #1 — VinFast: Phát hiện sớm lỗi an toàn từ phiếu sửa chữa đa ngôn ngữ"** để thực hiện Deep-Dive.
+Tôi đề xuất chọn **"Card #1 — VinFast: Phát hiện sớm lỗi an toàn từ ticket sự cố và phiếu sửa chữa đa ngôn ngữ trên mọi thị trường"** để thực hiện Deep-Dive.
 
 ## Lý do lựa chọn và loại bỏ các thẻ khác:
 * **Card #1 (VinFast) — chọn:** hậu quả lớn và có bằng chứng công khai (nhiều đợt thu hồi VF8 tại Mỹ, trong đó có đợt được đưa ra sau khi cơ quan quản lý mở điều tra). Cách làm bằng rule (lọc từ khóa) thực sự yếu với văn bản tự do đa ngôn ngữ, nên LLM là cần thiết. Ranh giới rõ ràng: AI chỉ hỏi thêm theo bộ câu đã duyệt, đọc và thêm cảnh báo; con người quyết định thu hồi.
