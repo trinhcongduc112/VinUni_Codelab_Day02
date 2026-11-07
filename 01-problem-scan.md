@@ -55,14 +55,17 @@ Chọn top 3 từ danh sách SCAN: **#1 (VinFast — lỗi an toàn), #2 (Vinsch
 │                                                             │
 │ Bước nào tốn thời gian/lỗi nhất? Bước 4 (⏱ ~5 phút/phiếu;   │
 │   cả chu kỳ phát hiện 6–10 tuần — ước tính)                 │
-│ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 3–4: đọc mọi     │
-│   phiếu ngay khi nộp, chuẩn hóa về một danh mục lỗi, gắn cờ │
-│   an toàn kèm trích dẫn; soạn nháp tóm tắt tín hiệu cho kỹ  │
-│   sư duyệt.                                                 │
+│ AI có thể nhảy vào hỗ trợ ở bước nào? Từ bước 1:            │
+│   khách báo sự cố → AI hỏi thêm câu còn thiếu, ca khẩn      │
+│   chuyển kỹ sư trực ngay; kỹ thuật viên được gợi ý ca       │
+│   tương tự toàn cầu; AI đọc mọi phiếu ngay khi lưu, gắn cờ  │
+│   kèm trích dẫn; trụ sở có dashboard từ mọi thị trường và   │
+│   báo cáo tuần do AI soạn nháp, kỹ sư duyệt.                │
 │                                                             │
 │ Đo thành công bằng gì (Metric có số)?                       │
-│   • 100% phiếu VF8 được soát an toàn trong ≤ 24 giờ (hiện   │
-│     3–8 tuần, chỉ đọc được một phần phiếu)                  │
+│   • 100% phiếu VF8 được soát an toàn trong ≤ 24 giờ kể từ   │
+│     khi tạo ticket (hiện 3–8 tuần, chỉ đọc một phần phiếu)  │
+│   • Ca khẩn được kỹ sư trực gọi lại trong ≤ 2 giờ           │
 │   • Độ nhạy với phiếu an toàn ≥ 95% trên bộ test có nhãn    │
 │                                                             │
 │ Quick Architecture: [ ] No AI  [ ] Rule  [x] LLM  [ ] Agent │
@@ -151,6 +154,6 @@ Chọn top 3 từ danh sách SCAN: **#1 (VinFast — lỗi an toàn), #2 (Vinsch
 Tôi đề xuất chọn **"Card #1 — VinFast: Phát hiện sớm lỗi an toàn từ phiếu sửa chữa đa ngôn ngữ"** để thực hiện Deep-Dive.
 
 ## Lý do lựa chọn và loại bỏ các thẻ khác:
-* **Card #1 (VinFast) — chọn:** hậu quả lớn và có bằng chứng công khai (nhiều đợt thu hồi VF8 tại Mỹ, trong đó có đợt được đưa ra sau khi cơ quan quản lý mở điều tra). Cách làm bằng rule (lọc từ khóa) thực sự yếu với văn bản tự do đa ngôn ngữ, nên LLM là cần thiết. Ranh giới rõ ràng: AI chỉ đọc và thêm cảnh báo, con người quyết định thu hồi.
+* **Card #1 (VinFast) — chọn:** hậu quả lớn và có bằng chứng công khai (nhiều đợt thu hồi VF8 tại Mỹ, trong đó có đợt được đưa ra sau khi cơ quan quản lý mở điều tra). Cách làm bằng rule (lọc từ khóa) thực sự yếu với văn bản tự do đa ngôn ngữ, nên LLM là cần thiết. Ranh giới rõ ràng: AI chỉ hỏi thêm theo bộ câu đã duyệt, đọc và thêm cảnh báo; con người quyết định thu hồi.
 * **Card #2 (Vinschool):** dễ triển khai nhưng giá trị chủ yếu là tiết kiệm thời gian giáo viên; ngân hàng câu nhận xét mẫu đã giải quyết được một phần; có rủi ro phụ huynh không chấp nhận nhận xét do AI soạn.
 * **Card #3 (Xanh SM):** hợp với LLM kết hợp tra dữ liệu chuyến, nhưng phần lớn khiếu nại lặp lại có thể trả lời bằng mẫu soạn sẵn; giá trị thấp hơn nhiều so với rủi ro an toàn và pháp lý ở Card #1.
