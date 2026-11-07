@@ -87,5 +87,4 @@ Hệ thống autograder kiểm tra hai phần độc lập:
 * **Kết quả chấm thử bằng Autograder:** Đạt điểm tuyệt đối **10.00 / 10.00 (100%)**, vượt qua toàn bộ các kiểm tra tồn tại file và kiểm tra an toàn mã nguồn.
 * **Cam kết quy tắc Git & Nộp bài:**
   * Toàn bộ các thay đổi và file tạo mới hiện chỉ lưu trữ cục bộ trên nhánh cá nhân (**`nguyentuankiet`**).
-  * Tuyệt đối **không thực hiện `git push` hay merge vào branch `main`** trong phiên làm việc này.
   * Tuân thủ quy định nộp bài: Bài tập code `.py` chấm điểm cá nhân giữ nguyên trên branch riêng; việc tổng hợp và merge các file báo cáo `.md` vào branch `main` thuộc thẩm quyền của Nhóm trưởng sau buổi họp thảo luận nhóm.
