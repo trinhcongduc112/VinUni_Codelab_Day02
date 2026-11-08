@@ -1,166 +1,143 @@
-# 01 — Problem Scan & Quick-Assess
-### AI Engineer tại Vin Smart Future | Lab 02 — AI Product Scoping
+# 01 — Problem Scan & Quick Problem Cards (Vin Smart Future)
+
+**Họ tên:** Phan Bá An · **MSSV:** 2A202603375 · **Lớp:** L3A (VinUni AI20k K5-L3) · **GitHub:** [anphn3](https://github.com/anphn3)
+
+> **Ghi chú về số liệu:** Mọi con số (phút/lượt, số phiếu/ngày, tỉ lệ sai…) trong file này là **ước tính/giả định của người viết** để phục vụ scoping, **không phải dữ liệu nội bộ của Vingroup**. Trước khi làm thật, mỗi con số cần được xác minh với đơn vị vận hành (xem mục "Điểm yếu cần kiểm chứng" ở từng thẻ).
 
 ---
 
-## 🧑‍💻 Giới thiệu bản thân
-
-Tôi là **AI Product Engineer** tại **Vin Smart Future** (vai trò mô phỏng trong lab), quét vận hành của các công ty thành viên Vingroup để tìm cơ hội tối ưu bằng AI. Điểm khởi đầu là quy trình ra viện ở bệnh viện: bác sĩ soạn tóm tắt xuất viện mất khoảng 20–30 phút mỗi ca *(ước tính)*, còn những việc còn dở sau khi bệnh nhân về — như kết quả xét nghiệm trả về muộn — thì không ai được giao theo dõi.
-
-> Các con số nội bộ trong bài là **ước tính** để định hướng phép đo, không phải số liệu khảo sát tại các đơn vị. Số liệu công khai có nguồn ở cuối [02-deep-dive-report.md](02-deep-dive-report.md).
-
----
-
-# 🔍 Phase 1 — SCAN: Tìm kiếm cơ hội
-
-> Dùng **4 Lenses** để quét qua vận hành của các công ty thành viên Vingroup.
+# 🔍 Phase 1 — SCAN (4 Lenses)
 
 | # | Subsidiary | Lens | Mô tả ngắn bài toán |
 |---|------------|------|---------------------|
-| 1 | **Vinmec** | Tốn thời gian | Bác sĩ soạn thủ công tóm tắt xuất viện từ bệnh án điện tử — mất 20–30 phút/bệnh nhân *(ước tính)*; sau ra viện, kết quả xét nghiệm trả về muộn không có người được giao xem. |
-| 2 | **Vinhomes** | Lặp lại | Nhân viên ban quản lý phân loại thủ công hàng trăm phản ánh cư dân gửi qua App Vinhomes Resident mỗi ngày và forward đến đúng bộ phận xử lý (chiếm 3–4 giờ làm việc/ngày, ước tính). |
-| 3 | **VinFast** | AI có thể tốt hơn | Khách hàng mô tả triệu chứng lỗi xe bằng tiếng Việt tự nhiên (ví dụ: *"xe kêu cụp cụp ở bánh trước khi qua gờ giảm tốc"*), nhưng hệ thống chăm sóc khách hàng không tự động phân loại mã lỗi kỹ thuật — dẫn đến xếp sai chuyên viên sửa chữa. |
-| 4 | **Xanh SM** | Pain từ người khác | Tài xế phàn nàn rằng hệ thống gợi ý điểm đón không xét đến kẹt xe thực tế — tài xế phải tự đánh giá và từ chối chuyến, gây mất cuốc và ảnh hưởng KPI. |
-| 5 | **Vinpearl** | Tốn thời gian | Nhân viên booking đọc thủ công email đặt phòng theo đoàn (Group Booking) từ các công ty lữ hành — mỗi email dài 1–2 trang, cần trích xuất tay số phòng, ngày check-in/out, loại phòng và yêu cầu đặc biệt. |
-| 6 | **Vinmec** | Pain từ người khác | Bệnh nhân phàn nàn bị xếp nhầm chuyên khoa khi đặt lịch khám qua tổng đài — do nhân viên tiếp nhận không có chuyên môn y tế để phân loại triệu chứng chính xác. |
+| 1 | **Vinhomes** | Lặp lại | CSKH đọc từng phản ánh của cư dân (mất nước, thang máy, ồn, rò rỉ…) trên app/hotline rồi **phân loại và chuyển thủ công** cho đúng Ban quản lý (BQL) tòa/bộ phận kỹ thuật; ước tính ~9 phút/phiếu và ~15% phiếu bị chuyển nhầm. |
+| 2 | **VinFast** | AI có thể tốt hơn | Khách mô tả lỗi xe bằng tiếng Việt đời thường ("đi qua gờ giảm tốc kêu cụp cụp ở bánh trước"), nhân viên tiếp nhận phải tự quy ra hạng mục kiểm tra khi tạo phiếu dịch vụ. |
+| 3 | **Xanh SM** | Tốn thời gian | Lý do hủy chuyến nằm rải rác trong ghi chú tài xế, chat và cuộc gọi; analyst vận hành phải đọc mẫu thủ công mới thấy pattern lỗi (chỉ phủ được một phần nhỏ số chuyến). |
+| 4 | **Vinmec** | Pain từ người khác | Bác sĩ điều trị phải tự viết tóm tắt xuất viện từ bệnh án, xét nghiệm và diễn tiến; bác sĩ phàn nàn vì mất ~20–30 phút/bệnh nhân ngoài giờ khám. |
+| 5 | **VinUni** | Lặp lại | Giảng viên/TA chấm hàng trăm bài lab và soạn nhận xét lặp lại; autograder chỉ cho điểm đạt/không đạt, thiếu phản hồi giải thích lỗi cho sinh viên. |
+| 6 | **Vinpearl** | Pain từ người khác | Review khách sạn trên Booking/Agoda/Google Maps có phàn nàn khẩn (vệ sinh, thái độ nhân viên) nhưng nằm lẫn trong hàng trăm review, quản lý đọc muộn. |
+
+**Chọn top 3 để làm Quick Card:** #1 (Vinhomes), #3 (Xanh SM), #4 (Vinmec) — ba bài toán có ba mức rủi ro và ba kiểu kiến trúc khác nhau (Rule+LLM / LLM batch / LLM + bắt buộc có người duyệt), giúp so sánh AI Fit một cách công bằng.
 
 ---
 
 # 🃏 Phase 2 — QUICK-ASSESS: 3 Quick Problem Cards
 
-> Chọn **Top 3** từ danh sách SCAN: **#1 (Vinmec Ra viện không khe hở), #2 (Vinhomes Phân loại phản ánh), #6 (Vinmec Phân loại chuyên khoa).**
-
----
-
-## 🃏 Card #1 — Vinmec: Ra viện không khe hở
+## Card #1 — Vinhomes: Phân loại & điều hướng phản ánh cư dân
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #1                                       │
 │                                                             │
-│ Bài toán: Thông tin chuyển tiếp lúc ra viện bị chậm, thiếu  │
-│ và đứt quãng: bác sĩ mất ~30 phút/ca soạn 2 bản, dễ bỏ sót; │
-│ việc còn dở (kết quả chờ, khuyến nghị theo dõi) không có    │
-│ người nhận sau khi bệnh nhân về.                            │
-│ Công ty thành viên: [x] Vinmec                              │
+│ Bài toán: Phản ánh của cư dân được CSKH đọc, phân loại và   │
+│ chuyển thủ công tới BQL tòa/kỹ thuật, chậm và hay nhầm nơi. │
+│ Công ty thành viên: [x] Vinhomes                            │
 │                                                             │
-│ Ai đang đau (Actor)?                                        │
-│   Bác sĩ điều trị khoa Nội (soạn, ký); bệnh nhân và bác sĩ  │
-│   tái khám (nhận thông tin thiếu hoặc muộn).                │
+│ Ai đang đau? CSKH tuyến 1 (quá tải), BQL tòa (nhận phiếu    │
+│ sai/chậm), cư dân (chờ lâu, không biết ai xử lý).           │
 │                                                             │
 │ Workflow thủ công hiện tại (5 bước):                        │
-│   1. Rà hồ sơ trên HIS (chẩn đoán, thuốc, XN, CĐHA)         │
-│   → 2. Soạn tóm tắt cho bác sĩ                              │
-│   → 3. Soạn hướng dẫn dễ hiểu cho bệnh nhân                 │
-│   → 4. Ký, in, giao giấy ra viện                            │
-│   → 5. Kết quả về sau ra viện: không ai được giao xem       │
+│  1. Cư dân gửi phản ánh (app/hotline)                       │
+│  → 2. CSKH đọc, gán loại + mức khẩn                         │
+│  → 3. CSKH chọn bộ phận, chuyển qua Zalo/email/ticket       │
+│  → 4. BQL/kỹ thuật tiếp nhận, xử lý                         │
+│  → 5. CSKH phản hồi cư dân, đóng phiếu                      │
 │                                                             │
-│ Bước nào tốn nhất? Bước 1–3 (~28 phút/ca, ước tính)         │
-│ Bước nào rủi ro nhất? Bước 5 (kết quả về không ai nhận)     │
-│ AI có thể nhảy vào hỗ trợ ở đâu?                            │
-│   Trích dữ kiện hằng ngày (bác sĩ xác nhận) → tìm việc dở   │
-│   ẩn trong văn bản → viết bản cho bệnh nhân → gợi ý ưu      │
-│   tiên khi kết quả về. Rule: đối chiếu bỏ sót, theo dõi     │
-│   việc còn mở đến khi đóng.                                 │
+│ Bước nào tốn nhất? Bước 2–3 (⏱ ~9 phút/phiếu, ~15% nhầm)  │
+│ AI nhảy vào ở bước nào? Bước 2–3: gợi ý loại/mức khẩn/nơi   │
+│ nhận + soạn nháp phản hồi. Sự cố khẩn dùng RULE, không LLM. │
 │                                                             │
-│ Metric thành công?                                          │
-│   Thời gian bác sĩ/ca: ~30 phút → ≤ 10 phút.                │
-│   ≥ 95% kết quả về sau ra viện được xác nhận trong 72 giờ.  │
-│   0 lỗi nghiêm trọng trong giấy ra viện đã ký.              │
+│ Metric: Thời gian từ lúc nhận → đúng bộ phận tiếp nhận      │
+│ giảm từ ~45 phút (median) ──> dưới 10 phút; phân loại đúng  │
+│ ≥ 90% trên 500 phiếu đã gán nhãn; 0 sự cố khẩn bị chậm.     │
 │                                                             │
-│ Quick Architecture: [ ] No AI  [x] Rule  [x] LLM  [ ] Agent │
+│ Quick Architecture: [x] Rule (khẩn cấp, bảng định tuyến)    │
+│                     [x] LLM (phân loại câu chữ mơ hồ)       │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**⚡ Stress-Test (đóng vai CFO và Trưởng phòng Vận hành phản biện)** — 3 điểm yếu theo đúng 3 góc của worksheet:
-- *Logic:* "Viết nhanh hơn không sửa được việc giấy ra viện đến muộn và kết quả bị bỏ quên." → **Đã sửa:** card chuyển trọng tâm từ *viết* sang *khép vòng*; mọi việc còn mở có người phụ trách và hạn chót.
-- *Metric:* "30 phút/ca chưa ai đo." → **Đúng, đây là ước tính:** phải đo baseline ít nhất 2 tuần bằng audit log HIS trước khi pilot.
-- *Rule-based có tốt hơn không?* "Kết quả chờ đã nằm trong y lệnh thì rule báo được." → **Đúng một phần:** rule giữ phần có cấu trúc (email báo kết quả chờ đã được thử nghiệm từ 2014); LLM chỉ dùng cho khuyến nghị theo dõi nằm trong văn bản tự do, và chỉ được giữ nếu tìm thêm được việc còn mở so với chỉ dùng rule.
+**Điểm yếu cần kiểm chứng (góc nhìn CFO/Trưởng vận hành):**
+1. *Rule-based có đủ không?* Nếu app cho cư dân chọn sẵn danh mục thì chỉ cần bảng định tuyến — LLM chỉ đáng dùng cho phần **văn bản tự do** (ước tính chiếm bao nhiêu % phiếu? cần đo trên log thật).
+2. *Con số 9 phút và 15% nhầm* là ước tính → phải đo thời gian thật ở 1–2 khu đô thị trước khi tính ROI.
+3. *Sự cố khẩn bị LLM phân loại sai* (cháy, rò gas, kẹt thang) là rủi ro lớn nhất → bắt buộc có lớp rule từ khóa chạy **trước** LLM và không phụ thuộc LLM.
 
 ---
 
-## 🃏 Card #2 — Vinhomes: AI Phân loại & Route Phản ánh Cư dân
+## Card #2 — Xanh SM: Tổng hợp lý do hủy chuyến
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #2                                       │
 │                                                             │
-│ Bài toán: Nhân viên BQL Vinhomes mất 3–4 giờ/ngày phân     │
-│ loại thủ công 200–500 phản ánh cư dân từ App & Hotline      │
-│ và forward đến đúng bộ phận xử lý.                          │
-│ Công ty thành viên: [x] Vinhomes                            │
+│ Bài toán: Lý do hủy chuyến nằm trong ghi chú/chat tài xế    │
+│ dạng văn bản tự do; analyst đọc tay nên chỉ phủ phần nhỏ.   │
+│ Công ty thành viên: [x] Xanh SM                             │
 │                                                             │
-│ Ai đang đau (Actor)?                                        │
-│   Nhân viên CSKH Ban Quản lý tòa nhà Vinhomes Smart City    │
-│   (2–3 nhân viên/ca x 3 ca/ngày/tòa nhà).                  │
+│ Ai đang đau? Analyst vận hành, quản lý khu vực (thiếu số    │
+│ liệu đáng tin để quyết định).                               │
 │                                                             │
-│ Workflow thủ công hiện tại (4 bước):                        │
-│   1. Nhân viên đọc từng phản ánh từ App / nghe lại gọi     │
-│   → 2. Phân loại danh mục (điện, nước, thang máy, ANTT...) │
-│   → 3. Gán độ ưu tiên (khẩn cấp / bình thường)             │
-│   → 4. Forward ticket đến đúng kỹ thuật viên / bộ phận     │
+│ Workflow thủ công hiện tại (5 bước):                        │
+│  1. Xuất log hủy chuyến + ghi chú                           │
+│  → 2. Đọc mẫu ngẫu nhiên                                    │
+│  → 3. Gán nhãn lý do vào Excel                              │
+│  → 4. Tổng hợp báo cáo tuần                                 │
+│  → 5. Đề xuất hành động cho vận hành                        │
 │                                                             │
-│ Bước nào tốn nhất? Bước 1–2 (⏱ 2 phút/ticket x 300 vé)    │
-│ AI có thể nhảy vào hỗ trợ ở đâu? Bước 1–3:                 │
-│   Auto-classify → Auto-prioritize → Human confirm & route   │
+│ Bước nào tốn nhất? Bước 2–3 (⏱ ~2 ngày/tuần, phủ ~5% chuyến)│
+│ AI nhảy vào ở bước nào? Bước 3: phân loại mọi ghi chú vào   │
+│ ~10 nhóm lý do + trích câu tiêu biểu.                       │
 │                                                             │
-│ Metric thành công?                                          │
-│   Tỉ lệ phân loại đúng danh mục ≥ 95%.                      │
-│   Giảm thời gian xử lý ticket từ trung bình 4 giờ → 30 phút│
+│ Metric: Phủ 100% ghi chú (thay vì ~5%); khớp nhãn analyst   │
+│ ≥ 85% trên 300 mẫu; thời gian làm báo cáo tuần 2 ngày ──>   │
+│ dưới 2 giờ.                                                 │
 │                                                             │
-│ Quick Architecture: [x] LLM Feature + Rule Router           │
+│ Quick Architecture: [x] LLM (batch, offline, không real-time)│
 └─────────────────────────────────────────────────────────────┘
 ```
 
+**Điểm yếu cần kiểm chứng:** (1) Nếu lý do hủy đã là trường dropdown thì chỉ cần thống kê, không cần AI. (2) Ghi chú tài xế có thể thiên lệch (đổ lỗi cho khách) → nhãn LLM chỉ phản ánh *lời kể*, không phải nguyên nhân thật. (3) Giá trị nằm ở quyết định vận hành tiếp theo — nếu không ai hành động theo báo cáo thì ROI bằng 0.
+
 ---
 
-## 🃏 Card #3 — Vinmec: AI Phân loại Chuyên khoa Khám ban đầu
+## Card #3 — Vinmec: Nháp tóm tắt xuất viện
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │ QUICK PROBLEM CARD #3                                       │
 │                                                             │
-│ Bài toán: Bệnh nhân đặt khám qua tổng đài Vinmec bị xếp    │
-│ nhầm chuyên khoa do nhân viên không có chuyên môn phân loại │
-│ triệu chứng y tế chính xác.                                 │
+│ Bài toán: Bác sĩ tự tổng hợp bệnh án thành bản tóm tắt xuất │
+│ viện, tốn thời gian ngoài giờ khám.                         │
 │ Công ty thành viên: [x] Vinmec                              │
 │                                                             │
-│ Ai đang đau (Actor)?                                        │
-│   Nhân viên tiếp nhận tổng đài đặt lịch Vinmec (10–15 cuộc │
-│   gọi/giờ), Bệnh nhân (xếp nhầm khoa, phải đổi lịch lại).  │
+│ Ai đang đau? Bác sĩ điều trị (quá tải hành chính); bệnh     │
+│ nhân/người nhà (nhận bản tóm tắt trễ, khó hiểu).            │
 │                                                             │
-│ Workflow thủ công hiện tại (4 bước):                        │
-│   1. Bệnh nhân gọi điện mô tả triệu chứng bằng tiếng Việt  │
-│   → 2. Nhân viên tự phán đoán chuyên khoa từ mô tả         │
-│   → 3. Đặt lịch vào hệ thống HIS Vinmec                    │
-│   → 4. Bệnh nhân đến, bác sĩ phát hiện nhầm khoa → đổi lịch│
+│ Workflow thủ công hiện tại (5 bước):                        │
+│  1. Mở hồ sơ bệnh án điện tử, đọc diễn tiến                 │
+│  → 2. Tổng hợp chẩn đoán, thuốc, kết quả xét nghiệm         │
+│  → 3. Gõ bản tóm tắt + dặn dò                               │
+│  → 4. Rà soát, ký                                           │
+│  → 5. In/gửi bệnh nhân                                      │
 │                                                             │
-│ Bước nào tốn nhất? Bước 2 (⏱ 3–5 phút/cuộc)               │
-│   + Tỉ lệ nhầm khoa: 15–20% → gây đổi lịch, giảm hài lòng │
-│ AI có thể nhảy vào hỗ trợ ở đâu? Bước 2:                   │
-│   AI phân tích triệu chứng → Gợi ý Top 3 chuyên khoa       │
-│   → Nhân viên confirm và đặt lịch chính xác hơn             │
+│ Bước nào tốn nhất? Bước 2–3 (⏱ ~25 phút/bệnh nhân)         │
+│ AI nhảy vào ở bước nào? Bước 2–3: soạn NHÁP; bước 4 bắt    │
+│ buộc bác sĩ duyệt và ký.                                    │
 │                                                             │
-│ Metric thành công?                                          │
-│   Giảm tỉ lệ nhầm khoa từ 18% xuống dưới 5%.               │
-│   Thời gian xử lý cuộc gọi đặt lịch giảm từ 5 phút → 2 phút│
+│ Metric: 25 phút ──> ≤ 10 phút/ca; ≤ 10% bản nháp phải sửa   │
+│ nội dung lâm sàng; 0 bản gửi bệnh nhân khi chưa có chữ ký.  │
 │                                                             │
-│ Quick Architecture: [x] LLM Feature                        │
+│ Quick Architecture: [x] LLM (+ Human-in-the-loop bắt buộc)  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
+**Điểm yếu cần kiểm chứng:** (1) Dữ liệu bệnh án là dữ liệu nhạy cảm → cần quy định bảo mật/PII trước khi đưa vào bất kỳ LLM nào. (2) Một nhầm lẫn liều thuốc có thể gây hại thật → tỉ lệ sai chấp nhận được gần bằng 0, nên "tiết kiệm 15 phút" khó biện minh nếu bác sĩ phải đọc lại từng chữ. (3) Khả năng **NOT YET** cao hơn hai thẻ còn lại.
+
 ---
 
-## 🗳️ Quyết định lựa chọn bài toán cho Deep-Dive
+# 🗳️ Chọn bài toán để Deep-Dive
 
-> **Nhóm chọn Card #1 — Vinmec: Ra viện không khe hở** để thực hiện Phase 3.
+Tôi chọn **Card #1 — Vinhomes: Phân loại & điều hướng phản ánh cư dân** cho báo cáo Deep-Dive ([02-deep-dive-report.md](02-deep-dive-report.md)).
 
-**Lý do chọn Card #1** (mỗi lý do ứng với một tiêu chí, không chồng lấn):
-- **Mức nghiêm trọng:** ảnh hưởng trực tiếp đến an toàn người bệnh — 41% bệnh nhân ra viện khi còn kết quả chờ, khoảng 9% số kết quả đó có thể làm thay đổi điều trị (nghiên cứu ở Mỹ, cần đo lại tại Vinmec).
-- **Dữ liệu:** bệnh án điện tử đã bắt buộc tại bệnh viện chậm nhất từ 30/9/2025, nên dữ liệu có cấu trúc nhiều khả năng đã có.
-- **Vai trò của AI:** có phần việc rule không làm được — đọc khuyến nghị theo dõi nằm trong văn bản tự do.
-- **Kiểm soát rủi ro:** AI chỉ được thêm cảnh báo, không được xóa; bác sĩ xác nhận và ký mọi thứ trước khi đến tay bệnh nhân.
-
-**Lý do loại bỏ các thẻ khác** (mỗi thẻ một lý do chính):
-- **Card #2 (Vinhomes):** phần lớn có thể giải quyết bằng rule-based router + từ khóa *(ước tính ~80%)* → chưa cần LLM.
-- **Card #3 (Vinmec):** gợi ý chuyên khoa là quyết định lâm sàng ngay ở đầu vào, sai thì khó kiểm soát hậu quả; cần dữ liệu lịch sử lớn để đánh giá trước khi làm.
+* **Vì sao chọn #1:** workflow có cấu trúc rõ, tác vụ lặp lại với khối lượng lớn, rủi ro kiểm soát được nhờ tách **rule cho sự cố khẩn** và **người duyệt cho phản hồi gửi cư dân** — thể hiện đúng nguyên tắc *Problem First, AI Second*.
+* **Vì sao chưa chọn #2 (Xanh SM hủy chuyến):** là phân tích back-office, giá trị phụ thuộc việc vận hành có hành động theo báo cáo hay không; ít tác động trực tiếp đến trải nghiệm thời gian thực.
+* **Vì sao chưa chọn #3 (Vinmec):** rủi ro lâm sàng và quy định dữ liệu quá cao cho một vòng prototype ngắn; nên để sau khi có baseline và khung bảo mật.
